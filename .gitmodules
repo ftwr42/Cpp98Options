@@ -1,0 +1,3 @@
+[submodule "Cpp98Options"]
+	path = Cpp98Options
+	url = https://github.com/ftwr42/Cpp98Options.git
