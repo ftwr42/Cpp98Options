@@ -1,5 +1,7 @@
 #include "include/cpp98opts/cpp98opts.h"
-#include <iostream>
+
+#include <vector>
+#include <string>
 
 Cpp98Opts::Cpp98Opts(int argc, char **argv) {
     
@@ -8,7 +10,34 @@ Cpp98Opts::Cpp98Opts(int argc, char **argv) {
         char *string = argv[i];
         std::cout<<i<<". "<<string<<"\n";
 
-
-        
+        if(optionExist(string)) {
+            std::cout<<"new"<<"\n";
+        } else {
+            std::cout<<"get"<<"\n";
+        }
     }
+}
+
+bool Cpp98Opts::optionExist(char *string) {
+
+    std::vector<std::vector<std::string> >::iterator iter;
+
+    for (iter = _values().begin(); iter != _values().end() ; iter++) {
+        if ()
+    }
+
+    return false;
+}
+
+void Cpp98Opts::doSome() {
+    std::cout<<"hi some"<<"\n";
+}
+
+Option &Cpp98Opts::getOption(const String name) const {
+
+    std::vector<std::vector<std::string> >::iterator iter;
+
+
+
+    return NULL;
 }

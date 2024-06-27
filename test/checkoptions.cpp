@@ -1,12 +1,10 @@
-#include "check_options.h"
 #include <gtest/gtest.h>
-#include <cpp98opts/cpp98opts.h>
-#include <cpp98opts/option.h>
+#include "../src/include/cpp98opts/cpp98opts.h"
 
 
-class CheckOptions: public testing::Test {
-
-};
+//class CheckOptions: public testing::Test {
+//
+//};
 
 TEST(Main, ReadParameters) {
 
@@ -16,6 +14,7 @@ TEST(Main, ReadParameters) {
     char **argv = const_cast<char**>(strings);
 
     Cpp98Opts opts = Cpp98Opts(argc, argv);
+    opts.doSome();
 
     ASSERT_TRUE(true);
 }

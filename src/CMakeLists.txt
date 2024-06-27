@@ -2,8 +2,9 @@ add_library(cpp98opts)
 
 target_sources(cpp98opts
         PRIVATE
-        cpp98opts.cpp
-        option.cpp
+        cpp98opts.cpp include/cpp98opts/cpp98opts.h
+        option.cpp include/cpp98opts/option.h
+        common.h
 
         PUBLIC FILE_SET HEADERS
         BASE_DIRS include FILES

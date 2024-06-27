@@ -24,7 +24,7 @@ endmacro()
 check_sanitizer_support()
 
 if (PROJECT_IS_TOP_LEVEL)
-    option(cpp98opts_warnings_as_errors "Treat warnings as errors" ON)
+    option(cpp98opts_warnings_as_errors "Treat warnings as errors" OFF)
     option(cpp98opts_enable_undefined_behavior_sanitizer "Enable undefined behavior sanitizer" ${supports_ubsan})
     option(cpp98opts_enable_address_sanitizer "Enable address sanitizer" ${supports_asan})
     option(cpp98opts_build_tests "Build tests using Google Test" ON)
