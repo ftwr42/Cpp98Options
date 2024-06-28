@@ -26,7 +26,6 @@ include(GoogleTest)
 #gtest_discover_tests(cpp98opts_tests)
 
 add_executable(cpp98opts_tests checkoptions.cpp
-        ../src/common.h
         ../src/cpp98opts.cpp
         ../src/option.cpp
         ../src/include/cpp98opts/cpp98opts.h

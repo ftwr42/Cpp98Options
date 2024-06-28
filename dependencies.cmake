@@ -32,16 +32,11 @@ function(cpp98opts_setup_dependencies)
                 "INSTALL_GTEST OFF"
         )
 
-#        CPMAddPackage(
-#                NAME Boost
-#                GITHUB_REPOSITORY microsoft/vcpkg
-#                VERSION 1.75.0
-#                OPTIONS
-#                    "BOOST_INCLUDEDIR ${CMAKE_BINARY_DIR}/boost"
-#                    "BOOST_LIBRARYDIR ${CMAKE_BINARY_DIR}/boost/libs"
-#                    "Boost_USE_STATIC_LIBS ON"
-#                    "Boost_USE_MULTITHREADED ON"
-#        )
-
     endif ()
+
+    find_package(boost_atomic REQUIRED CONFIG)
+
+
+
 endfunction()
+

@@ -1,4 +1,7 @@
-cmake_minimum_required(VERSION 3.28)
+cmake_minimum_required(VERSION 3.26)
+
+set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake CACHE STRING "Vcpkg toolchain file")
+
 project(Cpp98Options CXX)
 include(GNUInstallDirs)
 
@@ -24,6 +27,7 @@ install(TARGETS cpp98opts EXPORT cpp98opts-targets ARCHIVE
 install(EXPORT cpp98opts-targets
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cpp98opts/cmake
         NAMESPACE c2k::
+        #todo
 )
 install(FILES "cpp98opts-config.cmake"
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cpp98opts/cmake

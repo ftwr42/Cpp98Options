@@ -4,12 +4,11 @@ target_sources(cpp98opts
         PRIVATE
         cpp98opts.cpp include/cpp98opts/cpp98opts.h
         option.cpp include/cpp98opts/option.h
-        common.h
 
-        PUBLIC FILE_SET HEADERS
-        BASE_DIRS include FILES
-        include/cpp98opts/cpp98opts.h
-        include/cpp98opts/option.h
+#        PUBLIC FILE_SET HEADERS
+#        BASE_DIRS include FILES
+#        include/cpp98opts/cpp98opts.h
+#        include/cpp98opts/option.h
 )
 
 target_include_directories(
@@ -19,4 +18,6 @@ target_include_directories(
         "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
 )
 
+
+target_link_libraries(cpp98opts PUBLIC Boost::atomic)
 
