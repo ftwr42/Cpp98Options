@@ -1,6 +1,7 @@
 #pragma once
 
-#include "../../common.h"
+#include <iostream>
+#include <string>
 
 class Option {
 
@@ -10,8 +11,8 @@ public:
 
 
 private:
-    String name;
-    std::vector<std::vector<std::string> > values();
+    std::string name;
+    std::vector<std::string> _vals
 
 
 };
