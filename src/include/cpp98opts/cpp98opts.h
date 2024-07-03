@@ -1,6 +1,9 @@
 #pragma once
 
 #include "option.h"
+#include <vector>
+#include <map>
+
 
 class Cpp98Opts {
 
@@ -13,5 +16,6 @@ public:
 private:
 
     bool optionExist(char *string);
+    std::map<std::string, boost::optional<std::string > > values;
 
 };

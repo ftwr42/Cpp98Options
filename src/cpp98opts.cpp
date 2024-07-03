@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 
+
 Cpp98Opts::Cpp98Opts(int argc, char **argv) {
     
     for (int i = 1; i < argc; ++i) {
@@ -22,9 +23,9 @@ bool Cpp98Opts::optionExist(char *string) {
 
     std::vector<std::vector<std::string> >::iterator iter;
 
-    for (iter = _values().begin(); iter != _values().end() ; iter++) {
-        if ()
-    }
+//    for (iter = _values().begin(); iter != _values().end() ; iter++) {
+//        if ()
+//    }
 
     return false;
 }
@@ -33,11 +34,16 @@ void Cpp98Opts::doSome() {
     std::cout<<"hi some"<<"\n";
 }
 
-Option &Cpp98Opts::getOption(const String name) const {
+Option &Cpp98Opts::getOption(const std::string name) const {
 
-    std::vector<std::vector<std::string> >::iterator iter;
+    std::map()
 
-
-
-    return NULL;
+    return <#initializer#>;
 }
+
+//Option &Cpp98Opts::getOption(const std::string name) const {
+//
+//    std::vector<std::vector<std::string> >::iterator iter;
+//
+//
+//}

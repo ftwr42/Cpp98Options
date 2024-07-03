@@ -1,7 +1,7 @@
 #include "include/cpp98opts/option.h"
-#include "common.h"
 
-Option::Option(const std::string& name): values(), name("no_name") {
+
+Option::Option(const std::string& name): name("no_name") {
 
 }
 
