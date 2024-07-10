@@ -8,13 +8,12 @@
 
 TEST(Main, ReadParameters) {
 
-    const char* strings[] = {"/workdir/myProg.exe", "Hello", "World", "Test"};
+    const char* strings[] = {"/workdir/myProg.exe", "--client", "vcan0"};
 
     int argc = 4;
     char **argv = const_cast<char**>(strings);
 
     Cpp98Opts opts = Cpp98Opts(argc, argv);
-    opts.doSome();
 
     ASSERT_TRUE(true);
 }

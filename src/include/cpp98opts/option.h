@@ -14,9 +14,6 @@ public:
 
 private:
     std::string name;
-    std::vector<std::string> _vals;
-
-
-
+    std::vector<std::string> values;
 
 };

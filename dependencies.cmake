@@ -2,6 +2,7 @@ include("${PROJECT_SOURCE_DIR}/cmake/CPM.cmake")
 include("${PROJECT_SOURCE_DIR}/cmake/system_link.cmake")
 
 function(cpp98opts_setup_dependencies)
+
 #    CPMAddPackage(
 #            NAME TL_EXPECTED
 #            GITHUB_REPOSITORY TartanLlama/expected
@@ -35,8 +36,5 @@ function(cpp98opts_setup_dependencies)
     endif ()
 
     find_package(boost_atomic REQUIRED CONFIG)
-
-
-
 endfunction()
 
