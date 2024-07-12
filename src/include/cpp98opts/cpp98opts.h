@@ -1,27 +1,38 @@
 #pragma once
 
+#include "chapter.h"
 #include "option.h"
-#include "description.h"
 #include <vector>
 #include <map>
 
 class Cpp98Opts {
 
 public:
-    Cpp98Opts(int argc, char **argv);
+    explicit Cpp98Opts(const std::vector<std::string> & signs);
 
+    void addDescription(Option &description);
+
+    std::string printDescriptions() const;
+
+    static std::vector<std::string> convertArgvToStrings(int argc, char** argv);
+
+    const std::string & descriptionsToString() const;
 
 private:
 
     bool optionExist(const std::string& key);
 //    std::map<std::string, boost::optional<std::string > > values;
 
-    typedef std::map<std::string, Option*> MapStrOptions;
-    MapStrOptions  options;
-    typedef std::map<std::string, Description*> MapStrDescription;
-    MapStrDescription descriptions;
+    typedef std::map<std::string, Chapter*> OptionsMap;
+    OptionsMap options;
 
-    Option &getOption(const std::string &key) const;
+    typedef std::vector<Option*> DescriptionVector;
+    DescriptionVector descriptions;
+
+    typedef std::vector<std::string> StringVector;
+
+
+    Chapter &getOption(const std::string &key) const;
 
     bool descriptionExist(std::string key);
 };

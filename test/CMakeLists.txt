@@ -1,3 +1,7 @@
+#set(CMAKE_CXX_STANDARD 98)
+#set(CMAKE_CXX_STANDARD_REQUIRED ON)
+#set(CMAKE_CXX_EXTENSIONS OFF)
+
 include(GoogleTest)
 
 #function(add_test_executable target)
@@ -20,7 +24,7 @@ include(GoogleTest)
 #endfunction()
 #
 #add_test_executable(check_options)
-
+#
 #target_link_libraries(cpp98opts_tests PRIVATE cpp98opts)
 #target_link_system_libraries(cpp98opts_tests PRIVATE GTest::gtest GTest::gtest_main)
 #gtest_discover_tests(cpp98opts_tests)
@@ -28,8 +32,10 @@ include(GoogleTest)
 add_executable(cpp98opts_tests checkoptions.cpp
         ../src/cpp98opts.cpp
         ../src/option.cpp
+        ../src/chapter.cpp
         ../src/include/cpp98opts/cpp98opts.h
         ../src/include/cpp98opts/option.h
+        ../src/include/cpp98opts/chapter.h
 )
 
 target_link_libraries(

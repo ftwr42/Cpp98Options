@@ -1,19 +1,23 @@
 #pragma once
 
-#include <iostream>
 #include <string>
 #include <vector>
-
 
 class Option {
 
 public:
-    explicit Option(const std::string& name);
-    void addValue(const std::string& value);
+    void addParameter(const std::string & parameter);
+    void addDescription(const std::string & description);
+    void addExample(const std::string & example);
 
+    const std::vector<std::string> & getParameters();
+
+    std::string toString();
 
 private:
-    std::string name;
-    std::vector<std::string> values;
+    typedef std::vector<std::string> VectorString;
+    VectorString _parameters;
+    VectorString _descriptions;
+    VectorString _examples;
 
 };
