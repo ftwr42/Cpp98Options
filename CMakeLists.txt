@@ -26,9 +26,10 @@ install(TARGETS cpp98opts EXPORT cpp98opts-targets ARCHIVE
 )
 install(EXPORT cpp98opts-targets
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cpp98opts/cmake
-        NAMESPACE c2k::
-        #todo
+        NAMESPACE cpp98opts::
 )
 install(FILES "cpp98opts-config.cmake"
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cpp98opts/cmake
 )
+
+

@@ -19,6 +19,5 @@ target_include_directories(
         "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
 )
 
-
-target_link_libraries(cpp98opts PUBLIC Boost::atomic)
+target_link_libraries(cpp98opts PUBLIC Boost::atomic fmt::fmt)
 

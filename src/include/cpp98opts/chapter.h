@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "option.h"
+#include <optional>
 
 class Chapter {
 
@@ -18,8 +19,9 @@ public:
 private:
     typedef std::vector<std::string> VectorString;
     typedef std::vector<Option*> VectorOption; //todo make with optional
+
     const std::string _name;
     VectorString _headers;
-    VectorOption &_options;
+    VectorOption *_options; //todo make with optional
     VectorString _footers;
 };

@@ -1,4 +1,0 @@
-{
-  "dependencies": ["boost-smart-ptr", "boost-atomic"],
-  "builtin-baseline": "a8815b2ffa156d5d05e24015fa2d1e61c02bbcd6"
-}

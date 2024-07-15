@@ -36,5 +36,9 @@ function(cpp98opts_setup_dependencies)
     endif ()
 
     find_package(boost_atomic REQUIRED CONFIG)
+    find_package(fmt CONFIG REQUIRED)
+
+
+
 endfunction()
 

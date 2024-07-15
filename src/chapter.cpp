@@ -1,6 +1,9 @@
 #include "include/cpp98opts/chapter.h"
 
-Chapter::Chapter(const std::string &name) : _name(name) {}
+
+Chapter::Chapter(const std::string &name) : _name(name), _options(NULL) {
+
+}
 
 
 void Chapter::addHeader(const std::string & header) {
@@ -25,13 +28,15 @@ std::string Chapter::toString() {
     }
     buffer += "\n";
 
-    for (VectorOption ::const_iterator it = _options.begin(); _options.end() != it; ++it) {
-        buffer += it.base()->toString();
+    for (VectorOption::const_iterator it = _options->begin(); _options->end() != it; ++it) {
+//        buffer += (*it)->toString();
+//        const_cast<Option>( it.base())
+//        buffer += it.base().toString();
     }
     buffer += "\n";
 
     for (VectorString::const_iterator it = _footers.begin(); _footers.end() != it; ++it) {
-        buffer += *it.base() + ((std::next(it) == _footers.end())? "":", ");
+//        buffer += *it.base() + ((std::next(it) == _footers.end())? "":", ");
     }
     buffer += "\n";
 
