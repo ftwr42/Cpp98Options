@@ -2,25 +2,18 @@
 
 #include <boost/smart_ptr/intrusive_ptr.hpp>
 #include <boost/smart_ptr/make_shared_object.hpp>
-
-#include <boost/make_shared.hpp>
-#include <boost/shared_ptr.hpp>
-#include <boost/weak_ptr.hpp>
 #include <iostream>
+#include <utility>
 
-Chapter::Chapter(const std::string &name): _name(name) {}
+Chapter::Chapter(std::string name): _name(std::move(name)) {}
 
 void Chapter::addHeader(const std::string & header) {
     _headers.push_back(header);
 }
 
 void Chapter::addOption(Option &option) {
-    _options2.push_back(&option);
+    _options.push_back(&option);
 }
-
-// void Chapter::addOption2(const boost::shared_ptr<Option> &option) {
-//     _options2.push_back(option);
-// }
 
 void Chapter::addFooter(const std::string & footer) {
     _footers.push_back(footer);
@@ -40,7 +33,7 @@ std::string Chapter::toString() const {
         buffer += *it.base() + "\n";
     }
 
-    for (std::vector<Option*>::const_iterator it = _options2.begin(); _options2.end() != it; ++it) {
+    for (std::vector<Option*>::const_iterator it = _options.begin(); _options.end() != it; ++it) {
         Option *opt = *it.base();
         buffer += opt->toString();
     }

@@ -15,7 +15,6 @@ class Option {
     bool _is_parameter = false;
 
 public:
-    Option();
     Option(const std::string &parameter);
 
     void addParameter(const std::string & parameter);
