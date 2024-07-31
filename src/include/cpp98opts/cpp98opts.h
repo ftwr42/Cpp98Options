@@ -1,38 +1,30 @@
 #pragma once
 
+#include <map>
 #include "chapter.h"
 #include "option.h"
-#include <vector>
-#include <map>
+#include <boost/smart_ptr.hpp>
 
 class Cpp98Opts {
 
+    std::vector<const Chapter*> _chapters; //todo make optional
+    std::vector<boost::shared_ptr<Chapter>> _chapters2; //todo make optional
+    // std::map<std::string, boost::optional<Option*>> _options;
+    // std::map<std::string, boost::optional<boost::shared_ptr<Option>>> _options; //todo
+    std::vector<boost::optional<boost::shared_ptr<Option>>> _options2;
+
+    boost::optional<Option*> findOption(const std::string &find) const;
+    boost::optional<Chapter*> findChapter(const std::string &find) const;
+
 public:
-    explicit Cpp98Opts(const std::vector<std::string> & signs);
-
-    void addDescription(Option &description);
-
-    std::string printDescriptions() const;
-
+    std::string toString() const;
+    void addChapter(const Chapter &chapter);
+    // void addOption(Option & option);
+    std::vector<OptsType> getInput(const std::string &parameter_name) const;
+    void readParameters(const std::vector<std::string> & signs);
     static std::vector<std::string> convertArgvToStrings(int argc, char** argv);
+    Option & createOrGetOption(const std::string &parameter);
+    Option & createOrGetOption(const std::string &parameter1, const std::string &parameter2);
+    Chapter & createOrGetChapter(const std::string &header);
 
-    const std::string & descriptionsToString() const;
-
-private:
-
-    bool optionExist(const std::string& key);
-//    std::map<std::string, boost::optional<std::string > > values;
-
-    typedef std::map<std::string, Chapter*> OptionsMap;
-    OptionsMap options;
-
-    typedef std::vector<Option*> DescriptionVector;
-    DescriptionVector descriptions;
-
-    typedef std::vector<std::string> StringVector;
-
-
-    Chapter &getOption(const std::string &key) const;
-
-    bool descriptionExist(std::string key);
 };

@@ -1,27 +1,22 @@
 #pragma once
 
-#include <iostream>
-#include <string>
-#include <vector>
 #include "option.h"
-#include <optional>
 
 class Chapter {
 
-public:
-    explicit Chapter(const std::string & name);
-    void addHeader(const std::string & header);
-    void setOptions(std::vector<Option*> *options);
-    void addFooter(const std::string & footer);
-
-    std::string toString();
-
-private:
-    typedef std::vector<std::string> VectorString;
-    typedef std::vector<Option*> VectorOption; //todo make with optional
-
     const std::string _name;
-    VectorString _headers;
-    VectorOption *_options; //todo make with optional
-    VectorString _footers;
+    std::vector<std::string> _headers;
+    std::vector<Option*> _options2;
+    std::vector<std::string> _footers;
+
+public:
+    Chapter(const std::string &name);
+    void addHeader(const std::string &header);
+    void addOption(Option &option);
+    // void addOption2(const boost::shared_ptr<Option>& option);
+    void addFooter(const std::string &footer);
+    const std::string &getName() const;
+
+    std::string toString() const;
+
 };

@@ -32,4 +32,29 @@ install(FILES "cpp98opts-config.cmake"
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cpp98opts/cmake
 )
 
+find_package(boost_atomic REQUIRED CONFIG)
+find_package(boost_smart_ptr REQUIRED CONFIG)
+find_package(boost_optional REQUIRED CONFIG)
+find_package(boost_algorithm CONFIG REQUIRED)
+find_package(fmt CONFIG REQUIRED)
+find_package(boost_lexical_cast CONFIG REQUIRED)
+find_package(boost_format CONFIG REQUIRED)
+
+
+target_link_libraries(cpp98opts PUBLIC
+        Boost::atomic
+        fmt::fmt
+        Boost::optional
+        Boost::lexical_cast
+        Boost::format
+        Boost::smart_ptr
+        Boost::algorithm)
+target_link_libraries(cpp98opts_tests PUBLIC
+        Boost::atomic
+        fmt::fmt
+        Boost::optional
+        Boost::lexical_cast
+        Boost::format
+        Boost::smart_ptr
+        Boost::algorithm)
 

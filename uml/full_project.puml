@@ -1,0 +1,75 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+class Cpp98Opts {
+
+    -std::vector<const Chapter*> _chapters
+    -std::map<std::string, boost::optional<Option*>> _options
+
+    +const std::string toString() const
+    +void addChapter(const Chapter &chapter)
+    +void addOption(Option & option)
+    +std::vector<OptsType> getInput(const std::string &parameter_name) const
+    +void readParameters(const std::vector<std::string> & signs)
+    {static} +std::vector<std::string> convertArgvToStrings(int argc, char** argv)
+}
+
+class Option {
+
+    -std::vector<std::string> _parameters;
+    -std::vector<std::string> _descriptions;
+    -std::vector<std::string> _examples;
+    -std::vector<boost::optional<OptsType>> _values;
+    -std::vector<Option*> _this_options_depends_on;
+    -bool _is_parameter = false;
+
+    #void addParameter(const std::string & parameter);
+    #const std::vector<std::string> & getParameters();
+    +void addDescription(const std::string & description);
+    +void addExample(const std::string & example);
+    #void addValue(std::string value);
+    #const std::vector<boost::optional<OptsType>> &getValues();
+    +void addDependsOn(Option &option);
+    #std::vector<Option*> & getDependsOn();
+    #void setIsParameter(bool parameter_was_set);
+    #bool isParameter() const;
+    +bool asBool();
+    #std::string toString();
+}
+
+class Chapter {
+
+    -const std::string _name;
+    -std::vector<std::string> _headers;
+    -std::vector<Option*> _options;
+    -std::vector<std::string> _footers;
+
+    +Chapter(const std::string & name);
+    +void addHeader(const std::string & header);
+    +void addOption(Option &option);
+    +void addFooter(const std::string & footer);
+    #std::string toString();
+}
+
+class OptsType {
+
+    -std::string _value;
+
+    #OptsType(std::string value)
+    #std::string asString() const
+    +int asInt() const
+    +bool asBool() const
+    +unsigned int asHexUInt() const
+    +std::vector<boost::shared_ptr<OptsType>> asVector() const
+}
+
+Cpp98Opts "0" --> "n" Chapter : _chapters
+Cpp98Opts "0" --> "n" Option : _options
+
+Option "0" --> "n" Option : depends on
+Option "0" --> "n" OptsType : has values
+
+Chapter "0" --> "n" Option : contains
+
+@enduml
