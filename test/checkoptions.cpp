@@ -359,22 +359,18 @@ TEST(Main, CheckDependencies2) {
 
 TEST(Changes, MapToVectorOptions) {
 
-    //in order to make the map in cpp98opts more easy and tranform it into an vector
-    //the user should not handle smart_ptr and so on. Theirfor Cpp98Opts do need to handle everything
-    //factory like
-
     Cpp98Opts cpp98opts;
 
     //1) create a datatype to hold the options
     //2) create handlers to add and manipulate all option datas in cpp98opts
     //2.1) should be done like this
 
-    Option &option1 = cpp98opts.createOrGetOption("-o");
+    Option &option1 = cpp98opts.createOrGetOption("-a");
     option1.addParameter("--Aoption");
     option1.addDescription("Adescription");
     option1.addExample("Aexample");
 
-    Option &option1_1 = cpp98opts.createOrGetOption("-o");
+    Option &option1_1 = cpp98opts.createOrGetOption("-b");
     option1_1.addParameter("--Boption");
     option1_1.addDescription("Bdescription");
     option1_1.addExample("Bexample");
@@ -382,6 +378,7 @@ TEST(Changes, MapToVectorOptions) {
     Option &option2 = cpp98opts.createOrGetOption("-l");
     option2.addDescription("description");
     option2.addExample("example");
+
 
     //3) in order to not create a circle with chapter, cpp98opts also handles getChapter
     //3.1) to add a option to chapter this will be done like this as well, if it does not exist yet

@@ -5,6 +5,7 @@ set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/
 set(CPM_SOURCE_CACHE "${CMAKE_BINARY_DIR}/cpm_cache" CACHE STRING "Path to CPM source cache")
 set(CPM_DOWNLOAD_LOCATION "${CMAKE_BINARY_DIR}/cpm_packages" CACHE STRING "Where to put CPM packages")
 
+
 project(Cpp98Options CXX)
 include(GNUInstallDirs)
 

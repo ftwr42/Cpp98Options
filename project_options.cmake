@@ -5,8 +5,8 @@ include(${PROJECT_SOURCE_DIR}/cmake/sanitizers.cmake)
 # https://github.com/cpp-best-practices/cmake_template/blob/main/ProjectOptions.cmake
 macro(check_sanitizer_support)
     if ((CMAKE_CXX_COMPILER_ID MATCHES ".*Clang.*" OR CMAKE_CXX_COMPILER_ID MATCHES ".*GNU.*") AND NOT WIN32)
-        set(supports_ubsan ON)
-        set(supports_thread_sanitizer ON)
+        set(supports_ubsan OFF)
+        set(supports_thread_sanitizer OFF)
     else ()
         set(supports_ubsan OFF)
         set(supports_thread_sanitizer OFF)
@@ -16,12 +16,12 @@ macro(check_sanitizer_support)
         set(supports_asan OFF)
         set(supports_thread_sanitizer OFF)
     else ()
-        set(supports_asan ON)
+        set(supports_asan OFF)
         set(supports_thread_sanitizer OFF)
     endif ()
 endmacro()
 
-check_sanitizer_support()
+#check_sanitizer_support()
 
 if (PROJECT_IS_TOP_LEVEL)
     option(cpp98opts_warnings_as_errors "Treat warnings as errors" OFF)
@@ -39,11 +39,11 @@ add_library(cpp98opts_warnings INTERFACE)
 set_warnings(cpp98opts_warnings ${cpp98opts_warnings_as_errors})
 
 add_library(cpp98opts_sanitizers INTERFACE)
-enable_sanitizers(
-        cpp98opts_sanitizers
-        ${cpp98opts_enable_address_sanitizer}
-        ${cpp98opts_enable_undefined_behavior_sanitizer}
-)
+#enable_sanitizers(
+#        cpp98opts_sanitizers
+#        ${cpp98opts_enable_address_sanitizer}
+#        ${cpp98opts_enable_undefined_behavior_sanitizer}
+#)
 
 add_library(cpp98opts_options INTERFACE)
 target_link_libraries(cpp98opts_options
