@@ -1,7 +1,6 @@
 #include "include/cpp98opts/option.h"
 
-Option::Option() {
-}
+
 
 Option::Option(const std::string &parameter) {
     _parameters.push_back(parameter);
